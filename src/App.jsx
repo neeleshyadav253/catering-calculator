@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Header from "./components/Header";
 import RecipeBook from "./components/RecipeBook";
 import RecipeDetail from "./components/RecipeDetail";
@@ -6,6 +6,7 @@ import ProductList from "./components/ProductList";
 import CartPage from "./components/CartPage";
 import EnquiryPage from "./components/EnquiryPage";
 import Footer from "./components/Footer";
+import { recipesData } from "./data/recipes";
 import { useCart } from "./hooks/useCart";
 
 function App() {
@@ -28,6 +29,15 @@ function App() {
     handleGuestCountBlur,
     setGuestCount,
   } = useCart();
+
+  // Scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [currentPage]);
 
   const navigateTo = (page) => {
     setCurrentPage(page);
