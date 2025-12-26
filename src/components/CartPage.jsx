@@ -138,10 +138,6 @@ const CartPage = ({
   );
 };
 
-/* ======================================================
-   SUMMARY CARD
-====================================================== */
-
 const SummaryCard = ({ title, icon, value, footer, badge, strong }) => (
   <div className="p-6 bg-white shadow-lg rounded-2xl">
     <div className="flex justify-between mb-2">
